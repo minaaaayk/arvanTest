@@ -10,14 +10,21 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:arvanTest.helloWorld"
+        "onCommand:arvanTest.helloWorld",
+        "onCommand:arvanTest.arvanQuestion"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "arvanTest.helloWorld",
-				"title": "Hello World"
+				"title": "arvan hello word",
+				"category": "arvan test"
+			},
+			{
+				"command": "arvanTest.arvanQuestion",
+				"title": "arvan question",
+				"category": "arvan test"
 			}
 		]
 	},
