@@ -1,5 +1,6 @@
 
 import * as vscode from 'vscode';
+import { ArvanPanel } from './ArvanPanel';
 
 export async function activate(context: vscode.ExtensionContext) {
 	
@@ -7,7 +8,8 @@ export async function activate(context: vscode.ExtensionContext) {
 	
 	context.subscriptions.push(
 		vscode.commands.registerCommand('arvanTest.helloWorld', () => {
-			vscode.window.showInformationMessage('this is test of arvan extention');
+			// vscode.window.showInformationMessage('this is test of arvan extention');
+			ArvanPanel.createOrShow(context.extensionUri);
 		}
 	));
 

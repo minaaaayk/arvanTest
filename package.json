@@ -1,5 +1,5 @@
 {
-  "name": "arvanTest",
+	"name": "arvanTest",
 	"displayName": "arvanTest",
 	"description": "arvanTest",
 	"version": "0.0.1",
@@ -10,8 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:arvanTest.helloWorld",
-        "onCommand:arvanTest.arvanQuestion"
+		"onCommand:arvanTest.helloWorld",
+		"onCommand:arvanTest.arvanQuestion"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -32,7 +32,7 @@
 		"vscode:prepublish": "yarn run package",
 		"compile": "webpack",
 		"watch": "webpack --watch",
-		"package": "webpack --mode production --devtool hidden-source-map",
+		"package": "concurrently \"rollup -c -w\" \"webpack --mode production --devtool hidden-source-map\"",
 		"compile-tests": "tsc -p . --outDir out",
 		"watch-tests": "tsc -p . -w --outDir out",
 		"pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
@@ -40,19 +40,30 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.68.0",
+		"@rollup/plugin-commonjs": "^22.0.0",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-typescript": "^8.3.3",
+		"@tsconfig/svelte": "^3.0.0",
 		"@types/glob": "^7.2.0",
 		"@types/mocha": "^9.1.1",
 		"@types/node": "16.x",
+		"@types/vscode": "^1.68.0",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
+		"@vscode/test-electron": "^2.1.3",
+		"concurrently": "^7.2.2",
 		"eslint": "^8.16.0",
 		"glob": "^8.0.3",
 		"mocha": "^10.0.0",
-		"typescript": "^4.7.2",
+		"rollup": "^2.75.7",
+		"rollup-plugin-svelte": "^7.1.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"svelte": "^3.48.0",
+		"svelte-check": "^2.7.2",
+		"svelte-preprocess": "^4.10.7",
 		"ts-loader": "^9.3.0",
+		"typescript": "^4.7.2",
 		"webpack": "^5.72.1",
-		"webpack-cli": "^4.9.2",
-		"@vscode/test-electron": "^2.1.3"
+		"webpack-cli": "^4.9.2"
 	}
 }
